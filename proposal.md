@@ -1,11 +1,5 @@
-### Project Proposal Template
-
-Before you start project work for a course, you **should be able to complete the following proposal template**, addressing the questions listed as completely as possible. 
-However, keep in mind that throughout the design iterations of your project, many parts of it will likely change 
-(i.e. increase/decrease in number of samples, types of features or algorithm used, etc), so this is just a starting point.
-Also, if you are unsure in some areas, you should still submit a partial proposal to receive feedback from instructors. 
-
-In addition to submitting this plan, you may discuss the areas below with an instructor in a **scope meeting**.
+### Project Proposal
+ 
 
 #### Question/need:
 * What is the framing question of your analysis, or the purpose of the model/system you plan to build? 
@@ -27,3 +21,4 @@ In addition to submitting this plan, you may discuss the areas below with an ins
 
 #### MVP Goal:
 * What would a [minimum viable product (MVP)](./mvp.md) look like for this project?
+	* A minimum viable product for this project would be some kind of visualization(s) detailing the most trafficked stations/neighborhoods and the most trafficked times describing the findings. In addition, there should be a brief description of the work done and the means used to accomplish said work, with a more in depth explanation of what the findings mean for the organization (ie predictions about future travel, recommendations for street team station placement). A potential product that is more finalized would use additional datasets (in this case the census data described above) to make more targeted/informed decisions regarding street team planning. change bla bla bla
