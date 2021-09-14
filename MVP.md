@@ -8,11 +8,12 @@ In the first figure shown, we are arranging the top 15 most trafficked stations 
 
 ![](tot_sum_by_stat.png)
 
-Because the bar chart here only gives us a rough idea of the *general* level of traffic over a longer period of time, we selected the 5 most heavily trafficked stations from this list and took a deeper diver into their daily trends to get a better sense of traffic trends over time and potentially identify traffic patterns. 
+Because the bar chart here only gives us a rough idea of the *general* level of traffic over a longer period of time, we selected the 5 most heavily trafficked stations from this list and took a deeper diver into their daily trends to get a better sense of traffic trends over time and potentially identify traffic patterns. We can see the trends for these stations in the figure below. 
 
 ![](daily_entries_by_station.png)
 
 
+Finally, because WTWY are looking to identify ideal days to send their street teams out; as such, we are including this figure to identify the days the top stations are most frequented.
 
 
 ![](daily_entries_sum_week.png)
