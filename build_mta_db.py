@@ -13,12 +13,36 @@ def get_data(week_nums):
 
 ##need to make a loop here to generate integer values for each date desired...likely out to a year back, 
 ## I think the csv isnt getting overwritten when we write the file with new records
-week_nums = [210206,210213,210220,210227,210306,210313,210320,210327,210403,210410,210417,210424,210501,210508,210515,210522,210529]
-turnstiles_df = get_data(week_nums) #use our function to get a df with all of our data
 
+def get_week_num_list(min_date, max_month):
+    mon_len_dict = {1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
+    year = 21
+    month = int(str(min_date)[2:4])
+    date = int(str(min_date)[4:6])
+    out_list = []
+
+
+    while month <= max_month:
+        if date > mon_len_dict[month-1]:
+            date -= mon_len_dict[month-1]
+
+        while date <= mon_len_dict[month]:
+            date_val = int(str(year) + (str(month) if len(str(month)) == 2 else '0'+str(month)) + (str(date) if len(str(date)) == 2 else '0'+str(date)))
+            out_list.append(date_val)
+            date+=7
+
+        month += 1
+    return out_list
+
+
+    
+week_nums = get_week_num_list(210206,4)
+
+
+turnstiles_df = get_data(week_nums) #use our function to get a df with all of our data
+print(turnstiles_df)
 turnstiles_df.to_csv('mta_data_all.csv', header = False, index = False)
 
-print(turnstiles_df)
 
 #### https://www.reddit.com/r/datasets/comments/hixfeo/how_to_obtain_median_income_data_for_zip_codes/ .... need to get a list of the zipcodes per borough in nyc 
 #### then join with census data, shouldnt be an issue
