@@ -66,7 +66,7 @@ plt.xlabel('Station')
 plt.xticks(rotation=45)
 plt.title('Total Sum of Entries by Station (02-06-2021-05-29-2021)')
 
-plt.savefig('tot_sum_by_stat.png', bbox_inches = 'tight')
+plt.savefig('figs/tot_sum_by_stat.png', bbox_inches = 'tight')
 
 
 #Line for entire time frame
@@ -80,7 +80,7 @@ plt.xlabel('Date')
 plt.xticks(rotation=45)
 plt.title('Total Daily Entries by Station (02-06-2021-05-29-2021)')
 
-plt.savefig('daily_entries_by_station.png', bbox_inches = 'tight')
+plt.savefig('figs/daily_entries_by_station.png', bbox_inches = 'tight')
 
 #Line for week
 plt.figure(figsize=(15,8)) 
@@ -94,7 +94,7 @@ plt.xlabel('Day of Week')
 plt.xticks(np.arange(7),['Sn','Mo','Tu','We','Th','Fr','St'])
 plt.title('Sum of Entries by Station by Day (02-06-2021-05-29-2021)')
 
-plt.savefig('daily_entries_sum_week.png', bbox_inches = 'tight')
+plt.savefig('figs/daily_entries_sum_week.png', bbox_inches = 'tight')
 
 
 
