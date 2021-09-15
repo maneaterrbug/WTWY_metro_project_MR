@@ -36,7 +36,7 @@ def get_week_num_list(min_date, max_month):
 
 
     
-week_nums = get_week_num_list(210206,4)
+week_nums = get_week_num_list(210206,6)
 
 
 turnstiles_df = get_data(week_nums) #use our function to get a df with all of our data
