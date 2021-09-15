@@ -36,7 +36,7 @@ station_daily_sum = (station_daily
 station_daily_sum.head(5)
 
 ## Creates a df with daily_tot value grouped by each station, then applies masks/operations to see
-## only the top 5 stations and a dow sum by station (could clean up mask so it is not hard-coded)
+## only the top 5 stations and a dow sum by station (could clean up mask so it is not hard-coded, honestly just sort here and then run an iloc)
 daily_by_station = turnstiles_daily_cleaned.groupby(['STATION','DATE']).DAILY_TOT_ABS.sum().reset_index()
 station_mask = ((daily_by_station['STATION'] == '34 ST-PENN STA') | 
                 (daily_by_station['STATION'] == '34 ST-HERALD SQ') | 
