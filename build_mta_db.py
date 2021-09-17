@@ -23,8 +23,9 @@ def get_week_num_list(min_date, max_month):
 
 
     while month <= max_month:
-        if date > mon_len_dict[month-1]:
-            date -= mon_len_dict[month-1]
+        if month != 1:
+            if date > mon_len_dict[month-1]:
+                date -= mon_len_dict[month-1]
 
         while date <= mon_len_dict[month]:
             date_val = int(str(year) + (str(month) if len(str(month)) == 2 else '0'+str(month)) + (str(date) if len(str(date)) == 2 else '0'+str(date)))
@@ -32,6 +33,7 @@ def get_week_num_list(min_date, max_month):
             date+=7
 
         month += 1
+
     return out_list
 
 
