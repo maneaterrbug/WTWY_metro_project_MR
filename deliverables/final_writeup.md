@@ -16,7 +16,7 @@ The base dataset used here is comprised of 1 year's worth of NYC MTA turnstile a
 
 ## Algorithms
 
-*Discuss the methods used to clean and organize the data, and some of the tough decisions made*
+*Discuss the methods used to clean and organize the data, and some of the tough decisions made TESTING*
 
 ## Tools
 
