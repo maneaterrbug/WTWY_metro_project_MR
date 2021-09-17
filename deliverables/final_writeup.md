@@ -27,6 +27,6 @@ The base dataset used here is comprised of 1 year's worth of NYC MTA turnstile a
 
 ## Communication
 
-![](tot_sum_by_stat.png)
-![](hourly_by_stn.png)
-![](fig_subplot.png)
+![](figs/tot_sum_by_stat.png)
+![](figs/hourly_by_stn.png)
+![](figs/fig_subplot.png)
