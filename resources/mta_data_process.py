@@ -5,8 +5,11 @@ import matplotlib.pyplot as plt
 
 
 ## Creates the sqlalchemy engine and uses a SQL query to store the data in a dataframe
+### Please see exploration_queries.sql file in this repo for SQL queries used for general high level data exploration
 engine = create_engine('sqlite:///mta.db')
 turnstiles_df = pd.read_sql('SELECT * FROM mta_data;', engine)
+
+
 
 turnstiles_df['DATE'] = turnstiles_df['DATE'].astype('datetime64[ns]')
 turnstiles_df['STATION_LINE'] = turnstiles_df.STATION + ", " + turnstiles_df.LINENAME
@@ -25,10 +28,6 @@ turnstiles_hourly = turnstiles_hourly[turnstiles_hourly.TIME.isin(['00:00:00','0
 turnstiles_hourly['HOURLY_AMT'] = turnstiles_hourly.groupby(["CA", "UNIT", "SCP", "STATION_LINE"]).ENTRIES.diff()
 turnstiles_hourly['HOURLY_AMT_ABS'] = np.absolute(turnstiles_hourly.HOURLY_AMT)
 
-## temp - to be removed
-turnstiles_daily.to_csv('td.csv')
-turnstiles_hourly.to_csv('th.csv')
-##
 
 ## Applies data cleaning masks
 mask = (turnstiles_daily.DAILY_TOT_ABS < 10000)
