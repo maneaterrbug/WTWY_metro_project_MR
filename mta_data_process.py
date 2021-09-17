@@ -81,7 +81,7 @@ plt.bar(station_daily_sum.STATION_LINE, station_daily_sum.DAILY_TOT_ABS, tick_la
 plt.ylabel('# of Entries')
 plt.xlabel('Station')
 plt.xticks(size = 7, rotation = 45)
-plt.title('Total Sum of Entries by Station (01/04/2020-12-26-2020)')
+plt.title('Total Sum of Entries by Station (01/02/2021-08-28-2021)')
 
 plt.savefig('figs/tot_sum_by_stat.png', bbox_inches = 'tight')
 
@@ -96,7 +96,7 @@ plt.legend(shadow = True, loc = 0, fontsize = 'small')
 plt.ylabel('# of Entries')
 plt.xlabel('Date')
 plt.xticks(rotation=45)
-plt.title('Total Daily Entries by Station (02-06-2021-05-29-2021)')
+plt.title('Total Daily Entries by Station (01/02/2021-08-28-2021)')
 
 plt.savefig('figs/daily_entries_by_station.png', bbox_inches = 'tight')
 
@@ -111,7 +111,7 @@ plt.legend(shadow = True, loc = 0, fontsize = 'small')
 plt.ylabel('# of Entries')
 plt.xlabel('Day of Week')
 plt.xticks(np.arange(7),['Sn','Mo','Tu','We','Th','Fr','St'])
-plt.title('Sum of Entries by Station by Day (02-06-2021-05-29-2021)')
+plt.title('Sum of Entries by Station by Day (01/02/2021-08-28-2021)')
 
 plt.savefig('figs/daily_entries_sum_week.png', bbox_inches = 'tight')
 
