@@ -15,8 +15,8 @@ def get_data(week_nums):
 ## I think the csv isnt getting overwritten when we write the file with new records
 
 def get_week_num_list(min_date, max_month):
-    mon_len_dict = {1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
-    year = 21
+    mon_len_dict = {1:31,2:29,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
+    year = 20
     month = int(str(min_date)[2:4])
     date = int(str(min_date)[4:6])
     out_list = []
@@ -33,12 +33,11 @@ def get_week_num_list(min_date, max_month):
             date+=7
 
         month += 1
-
     return out_list
 
 
     
-week_nums = get_week_num_list(210206,6)
+week_nums = get_week_num_list(200104,12)
 
 
 turnstiles_df = get_data(week_nums) #use our function to get a df with all of our data
