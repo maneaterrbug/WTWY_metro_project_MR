@@ -18,11 +18,17 @@ turnstiles_daily = (turnstiles_df
 turnstiles_daily['DAILY_TOT'] = turnstiles_daily.groupby(["CA", "UNIT", "SCP", "STATION_LINE"]).ENTRIES.diff()
 turnstiles_daily['DAILY_TOT_ABS'] = np.absolute(turnstiles_daily.DAILY_TOT)
 
+
 ## Creates df turnstiles_hourly, which functions similarly to daily but does not group entries by day
 turnstiles_hourly = turnstiles_df.copy()
 turnstiles_hourly = turnstiles_hourly[turnstiles_hourly.TIME.isin(['00:00:00','04:00:00','08:00:00','12:00:00','16:00:00','20:00:00','24:00:00'])]
 turnstiles_hourly['HOURLY_AMT'] = turnstiles_hourly.groupby(["CA", "UNIT", "SCP", "STATION_LINE"]).ENTRIES.diff()
 turnstiles_hourly['HOURLY_AMT_ABS'] = np.absolute(turnstiles_hourly.HOURLY_AMT)
+
+## temp - to be removed
+turnstiles_daily.to_csv('td.csv')
+turnstiles_hourly.to_csv('th.csv')
+##
 
 ## Applies data cleaning masks
 mask = (turnstiles_daily.DAILY_TOT_ABS < 10000)
@@ -70,9 +76,9 @@ daily_by_station_dow_mean = (daily_by_station_top
                                 .reset_index())
 
 
-#######
-## Plotting 
-#######
+##############
+## Plotting ##
+##############
 
 #Bar
 color_lst = ['tab:blue','tab:orange','tab:green','tab:red','tab:purple','grey','grey','grey','grey','grey','grey','grey','grey','grey','grey']
@@ -149,22 +155,5 @@ plt.savefig('figs/hourly_by_stn.png', bbox_inches = 'tight')
 
 
 
-####There are large jumps of entries when the year shifts and for some (use existing code in mta pair 2 to clean this up)
-
-#station_daily = turnstiles_daily.groupby(['STATION','DATE'])[['DAILY_TOT']].sum().reset_index()
-
-#print(station_daily.groupby('STATION').DAILY_TOT.sum().reset_index().sort_values('DAILY_TOT',ascending = False))
-
-#station_daily_sum = station_daily.groupby('STATION').DAILY_TOT.sum().reset_index().sort_values('DAILY_TOT',ascending = False)
-
-#print(plt.bar(station_daily_sum.STATION, station_daily_sum.DAILY_TOT))
 
 
-
-
-
-## https://new.mta.info/agency/new-york-city-transit/subway-bus-ridership-2020
-##cleaning up diffs around changing scp borders
-# mask = (turnstiles_daily.SCP.shift(1) != turnstiles_daily.SCP)
-# turnstiles_daily['DAILY_TOT'][mask] = np.nan
-# https://medium.com/@laurenlhoward14/https-medium-com-laurenlhoward14-wtwysummer2019-6329b01d7d92
