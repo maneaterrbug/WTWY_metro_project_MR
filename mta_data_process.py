@@ -33,10 +33,6 @@ mask_shift = (turnstiles_daily.SCP.shift(1) != turnstiles_daily.SCP)
 turnstiles_daily.loc[mask_shift,'DAILY_TOT'] = np.nan
 
 
-##temp-to be removed
-turnstiles_daily.to_csv('turnstiles_daily.csv')
-
-##temp
 
 ## Organizes entries by station and creates a sum per station
 station_daily = (turnstiles_daily_cleaned
@@ -79,12 +75,13 @@ daily_by_station_dow_mean = (daily_by_station_top
 #######
 
 #Bar
-plt.figure(figsize=(10,5))
-plt.bar(station_daily_sum.STATION_LINE, station_daily_sum.DAILY_TOT_ABS, tick_label = station_daily_sum.STATION)
+color_lst = ['b','orange','g','r','purple','b','b','b','b','b','b','b','b','b','b',]
+plt.figure(figsize=(7,3))
+plt.bar(station_daily_sum.STATION_LINE, station_daily_sum.DAILY_TOT_ABS, tick_label = station_daily_sum.STATION, color = color_lst)
 plt.ylabel('# of Entries')
 plt.xlabel('Station')
 plt.xticks(rotation=45)
-plt.title('Total Sum of Entries by Station (02-06-2021-05-29-2021)')
+plt.title('Total Sum of Entries by Station (01/04/2020-12-26-2020)')
 
 plt.savefig('figs/tot_sum_by_stat.png', bbox_inches = 'tight')
 
@@ -144,7 +141,7 @@ plt.savefig('figs/fig_subplot.png', bbox_inches = 'tight')
 
 # Each stations mean entries by time of day
 color_lst = ['b','orange','g','r','purple']
-fig, axs = plt.subplots(1,5, figsize=(20,5))
+fig, axs = plt.subplots(1,5, figsize=(20,5), sharey = 'row')
 idx = 0
 for i, group in station_hourly_top.groupby('STATION_LINE'):
     axs[idx].bar(group['TIME'],group['HOURLY_AMT_ABS'], label = i, color = color_lst[idx])
